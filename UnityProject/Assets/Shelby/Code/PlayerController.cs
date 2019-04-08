@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     public Transform cameraPivot;
     public float playerCameraSpeed;
 
+    public GameObject cloud;
+
     public float moveSpeed = 10;
     public float rotSpeed = 50;
 
@@ -16,6 +18,13 @@ public class PlayerController : MonoBehaviour
         //Lock the mouse cursor and hide it
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+
+        //Spawn clouds lol
+        for (int i = 0; i < 25; i++)
+        {
+            Instantiate(cloud, new Vector3(Random.Range(-1500, 1500), 5, Random.Range(-1500, 1500)), Quaternion.Euler(0,Random.Range(0, 180),0));
+        }
     }
     void Update()
     {
